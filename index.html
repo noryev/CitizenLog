@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Flight Management Tool</title>
+    <meta charset="utf-8">
+    <style>
+        /* Add some basic styling */
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.5;
+            margin: 0;
+            padding: 0;
+            background-color: #222;
+            color: #FFF;
+        }
+
+        h1 {
+            margin: 0;
+            padding: 20px;
+            background-color: #008CBA;
+            color: #FFFFFF;
+        }
+
+        #container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #444;
+            border-radius: 4px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"],
+        select {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            background-color: #333;
+            color: #FFF;
+        }
+
+        button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Flight Management Tool</h1>
+    <div id="container">
+        <label for="flight-number">Flight Number:</label>
+        <input type="text" id="flight-number">
+        <label for="origin">Origin:</label>
+        <input type="text" id="origin">
+        <label for="destination">Destination:</label>
+        <input type="text" id="destination">
+        <label for="status">Status:</label>
+        <select id="status">
+            <option value="Not Started">Not Started</option>
+            <option value="Taxiing">Taxiing</option>
+            <option value="Takeoff">Takeoff</option>
+            <option value="Climb">Climb</option>
+            <option value="Cruise">Cruise</option>
+            <option value="Descent">Descent</option>
+            <option value="Approach">Approach</option>
+            <option value="Landing">Landing</option>
+            <option value="Completed">Completed</option>
+        </select>
+        <button onclick="updateFlight()">Update Flight</button>
+    </div>
+    <div id="flight-status"></div>
+    <script>
+        // Define a function to update the flight status
+        function updateFlight() {
+            // Get the values from the input fields
+            var flightNumber = document.getElementById('flight-number').value;
+            var origin = document.getElementById('origin').value;
+            var destination = document.getElementById('destination').value;
+            var status = document.getElementById('status').value;
+
+            // Update the flight status in the UI
+            var flightStatus = document.getElementById('flight-status');
+            flightStatus.innerHTML = `
+          <h2>Flight ${flightNumber}</h2>
+          <p><strong>Origin:</strong> ${origin}</p>
+          <p><strong>Destination:</strong> ${destination}</p>
+    
